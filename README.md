@@ -1,1 +1,1 @@
-# java_diplom_2
+# java_diplom_2_api
