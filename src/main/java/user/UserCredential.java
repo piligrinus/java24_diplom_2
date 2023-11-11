@@ -1,4 +1,5 @@
 package user;
+
 public class UserCredential {
     private String email;
     private String password;
@@ -9,10 +10,11 @@ public class UserCredential {
         this.password = password;
     }
 
-    public UserCredential(){
+    public UserCredential() {
 
     }
-    public static UserCredential from (User user){
+
+    public static UserCredential from(User user) {
         return new UserCredential(user.getEmail(), user.getPassword());
     }
 

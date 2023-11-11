@@ -1,6 +1,6 @@
 package user;
 
-public class User  {
+public class User {
     private String email;
     private String password;
     private String name;
@@ -10,7 +10,8 @@ public class User  {
         this.password = password;
         this.name = name;
     }
-    public User(){
+
+    public User() {
 
     }
 

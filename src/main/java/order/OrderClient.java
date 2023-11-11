@@ -8,10 +8,11 @@ public class OrderClient extends Client {
 
     public static final String INGREDIENTS = "/ingredients";
     public static final String ORDERS = "/orders";
-    @Step
-    public ValidatableResponse createWithAutorizationAndValidateIngredients (String token, Order order){
+
+    @Step ("Создание заказа с авторизацией и валидными ингредиентами")
+    public ValidatableResponse createWithAutorizationAndValidateIngredients(String token, Order order) {
         return getRequestSpecification()
-                .header("Authorization",token)
+                .header("Authorization", token)
                 .body(order)
                 .when()
                 .post(ORDERS)
@@ -21,8 +22,8 @@ public class OrderClient extends Client {
 
     }
 
-    @Step
-    public ValidatableResponse createWithoutAutorization (Order order){
+    @Step ("Создание заказа без авторизации")
+    public ValidatableResponse createWithoutAutorization(Order order) {
         return getRequestSpecification()
                 .body(order)
                 .when()
@@ -33,10 +34,10 @@ public class OrderClient extends Client {
 
     }
 
-    @Step
-    public ValidatableResponse createWithAutorizationAndUnValidateIngredients (String token, Order order){
+    @Step ("Создание заказа с авторизацией и невалидными ингредиентами")
+    public ValidatableResponse createWithAutorizationAndUnValidateIngredients(String token, Order order) {
         return getRequestSpecification()
-                .header("Authorization",token)
+                .header("Authorization", token)
                 .body(order)
                 .when()
                 .post(ORDERS)
@@ -46,10 +47,10 @@ public class OrderClient extends Client {
 
     }
 
-    @Step
-    public ValidatableResponse createWithAutorizationAndWithoutIngredients (String token){
+    @Step ("Создание заказа с авторизацией и без ингредиентов")
+    public ValidatableResponse createWithAutorizationAndWithoutIngredients(String token) {
         return getRequestSpecification()
-                .header("Authorization",token)
+                .header("Authorization", token)
                 .when()
                 .post(ORDERS)
                 .then()
@@ -58,10 +59,10 @@ public class OrderClient extends Client {
 
     }
 
-    @Step
-    public ValidatableResponse getOrderWithAutorization (String token){
+    @Step ("Получение заказа с авторизацией")
+    public ValidatableResponse getOrderWithAutorization(String token) {
         return getRequestSpecification()
-                .header("Authorization",token)
+                .header("Authorization", token)
                 .when()
                 .get(ORDERS)
                 .then()
@@ -70,8 +71,8 @@ public class OrderClient extends Client {
 
     }
 
-    @Step
-    public ValidatableResponse getOrderWithoutAutorization (){
+    @Step ("Получение заказа без авторизации")
+    public ValidatableResponse getOrderWithoutAutorization() {
         return getRequestSpecification()
                 .when()
                 .get(ORDERS)

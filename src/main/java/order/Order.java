@@ -9,7 +9,7 @@ public class Order {
         this.ingredients = ingredients;
     }
 
-    public Order(){
+    public Order() {
 
     }
 
